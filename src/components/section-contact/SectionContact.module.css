@@ -1,0 +1,193 @@
+.SectionContact__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionContact__title {
+  font-size: var(--titleFontSize);
+  font-family: var(--font-montserrat);
+  text-align: center;
+}
+
+.SectionContact__email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionContact__emailMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.letterImage {
+  position: relative;
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  width: 200px;
+  height: 200px;
+  /* -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  margin: 20px auto 50px auto;
+  /* cursor: pointer; */
+}
+
+.animatedMail {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+  animation: headShakeCustom 5s 3s infinite;
+}
+.animatedMail:hover {
+  animation: none;
+}
+
+.animatedMail .body {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 100px 200px;
+  border-color: transparent transparent #66ced3 transparent;
+  z-index: 2;
+}
+.animatedMail .topFold {
+  position: absolute;
+  top: 50px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 100px 0 100px;
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  -moz-transform-origin: 50% 0%;
+  -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  transform-origin: 50% 0%;
+  transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  border-color: #00adb5 transparent transparent transparent;
+  z-index: 2;
+}
+.animatedMail .backFold {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 100px;
+  background: #00adb5;
+  z-index: 0;
+}
+.animatedMail .leftFold {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 0 50px 100px;
+  border-color: transparent transparent transparent #33bdc4;
+  z-index: 2;
+}
+.animatedMail .letter {
+  left: 20px;
+  bottom: 0px;
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  background: white;
+  z-index: 1;
+  overflow: hidden;
+  -webkit-transition: 0.4s 0.2s;
+  -moz-transition: 0.4s 0.2s;
+  transition: 0.4s 0.2s;
+}
+.animatedMail .letter .letterBorder {
+  height: 10px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--primaryColor1),
+    var(--primaryColor1) 8px,
+    transparent 8px,
+    transparent 18px
+  );
+}
+.animatedMail .letter .letterTitle {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 10px;
+  width: 40%;
+  background: var(--primaryColor1);
+}
+.animatedMail .letter .letterContext {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 10px;
+  width: 20%;
+  background: var(--primaryColor1);
+}
+.animatedMail .letter .letterStamp {
+  margin-top: 30px;
+  margin-left: 120px;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background: var(--primaryColor1);
+  opacity: 0.3;
+}
+
+.shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 350px;
+  height: 30px;
+  transition: 0.4s;
+  transform: translateX(-50%);
+  -webkit-transition: 0.4s;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: 0.4s;
+  -moz-transform: translateX(-50%);
+  border-radius: 100%;
+  background: radial-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.letterImage:hover .animatedMail {
+  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+}
+.letterImage:hover .animatedMail .topFold {
+  transition: transform 0.4s, z-index 0.2s;
+  transform: rotateX(180deg);
+  -webkit-transition: transform 0.4s, z-index 0.2s;
+  -webkit-transform: rotateX(180deg);
+  -moz-transition: transform 0.4s, z-index 0.2s;
+  -moz-transform: rotateX(180deg);
+  z-index: 0;
+}
+.letterImage:hover .animatedMail .letter {
+  height: 180px;
+}
+.letterImage:hover .shadow {
+  width: 250px;
+}
+
+@media screen and (min-width: 768px) {
+  .SectionContact__title {
+    text-align: left;
+  }
+}

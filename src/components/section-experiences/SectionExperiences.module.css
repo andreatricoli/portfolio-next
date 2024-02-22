@@ -1,0 +1,273 @@
+.SectionExperiences__container {
+  display: grid;
+  /* grid-auto-columns: 1fr; */
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content;
+  gap: 30px 0px;
+  grid-template-areas: 'SectionExperiences__left' 'SectionExperiences__right';
+}
+
+.SectionExperiences__left {
+  grid-area: SectionExperiences__left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.SectionExperiences__right {
+  grid-area: SectionExperiences__right;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.SectionExperiences__photo {
+  border-radius: var(--borderRadius);
+  width: 100%;
+  height: auto;
+  transition: var(--transitionTime);
+  /* box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2); */
+}
+
+.SectionExperiences__title {
+  font-size: var(--titleFontSize);
+  font-family: var(--font-montserrat);
+  text-align: center;
+}
+
+.SectionExperiences__aboutText {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.SectionExperiences__photo:hover {
+  transform: scale(1.05);
+}
+
+/* Timeline Container */
+
+/* Card container */
+.SectionExperiences__timelineCard {
+  position: relative;
+  max-width: 400px;
+}
+
+/* setting padding based on even or odd */
+.SectionExperiences__timelineCard:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.SectionExperiences__timelineCard:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.SectionExperiences__timelineCard::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  border: solid var(--primaryColor1);
+}
+
+/* Setting the border of top, bottom, left */
+.SectionExperiences__timelineCard:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+/* @media only screen and (max-width: 400px) {
+  .SectionExperiences__timelineCard:nth-child(odd)::before {
+    top: -5px;
+    bottom: -5px;
+  }
+} */
+
+/* Setting the border of top, bottom, right */
+.SectionExperiences__timelineCard:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.SectionExperiences__timelineCard:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.SectionExperiences__timelineCard:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.SectionExperiences__timelineCard:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.SectionExperiences__timelineCardInfo {
+  display: flex;
+  flex-direction: column;
+  background: var(--primaryColor2);
+  color: var(--primaryColor4);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: var(--atBoxShadow);
+}
+
+/* Title of the card */
+.SectionExperiences__timelineCardTitle {
+  color: var(--primaryColor3);
+  position: relative;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+.SectionExperiences__timelineCardDate {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+.SectionExperiences__timelineCardRole {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+.SectionExperiences__timelineCardLocation {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 5px;
+}
+
+/* Timeline dot  */
+.SectionExperiences__timelineCardTitle::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primaryColor4);
+  border-radius: 50%;
+  border: 3px solid var(--primaryColor1);
+}
+
+/* text right if the card is even  */
+.SectionExperiences__timelineCard:nth-child(even)
+  > .SectionExperiences__timelineCard-info
+  > .SectionExperiences__timelineCard-title {
+  text-align: right;
+}
+
+/* setting dot to the left if the card is odd */
+.SectionExperiences__timelineCard:nth-child(odd)
+  > .SectionExperiences__timelineCardInfo
+  > .SectionExperiences__timelineCardTitle::before {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.SectionExperiences__timelineCard:nth-child(even)
+  > .SectionExperiences__timelineCardInfo
+  > .SectionExperiences__timelineCardTitle::before {
+  right: -45px;
+}
+
+.SectionExperiences__timeline {
+  width: 100%;
+  position: relative;
+}
+
+/* .btn {
+  color: var(--primaryColor4);
+  background: var(--primaryColor2);
+  border-radius: var(--borderRadius);
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1em;
+  text-decoration: none;
+  width: 40%;
+}
+.show,
+.hide {
+  position: absolute;
+  bottom: -1em;
+  z-index: 100;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+.show:target {
+  display: none;
+}
+.show:target ~ .hide {
+  display: block;
+}
+.show:target ~ .panel {
+  max-height: 2000px;
+}
+.show:target ~ .fade {
+  margin-top: 0;
+}
+
+.panel {
+  position: relative;
+  margin: 2em auto;
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.fade {
+  background: linear-gradient(to bottom, transparent, black);
+  height: 100px;
+  margin-top: -100px;
+  position: relative;
+} */
+
+.SectionExperiences__downloadCV {
+  padding: 30px;
+  border-radius: var(--borderRadius);
+  background-color: var(--primaryColor2);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--primaryColor4);
+  gap: 20px;
+  height: fit-content;
+}
+
+.SectionExperiences__findOutMoreTitle {
+  font-size: var(--titleFontSize);
+  font-family: var(--font-montserrat);
+}
+
+@media screen and (min-width: 768px) {
+  .SectionExperiences__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    gap: 30px var(--sectionTopBottomPadding);
+    grid-template-areas: 'SectionExperiences__left SectionExperiences__right';
+  }
+
+  .SectionExperiences__title {
+    text-align: left;
+  }
+}

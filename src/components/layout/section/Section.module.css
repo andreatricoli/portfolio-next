@@ -1,0 +1,10 @@
+.section {
+  width: 100%;
+}
+
+.section__container {
+  padding: var(--sectionPadding);
+  width: var(--pageWidth);
+  max-width: var(--pageMaxWidth);
+  margin: auto;
+}

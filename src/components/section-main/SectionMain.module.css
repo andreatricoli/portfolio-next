@@ -1,0 +1,118 @@
+.SectionMain__container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto min-content min-content;
+  gap: 30px 0px;
+  grid-template-areas: 'SectionMain__right' 'SectionMain__left' 'SectionMain__bottom';
+}
+
+.SectionMain__left {
+  grid-area: SectionMain__left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionMain__right {
+  grid-area: SectionMain__right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionMain__bottom {
+  grid-area: SectionMain__bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionMain__mainText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.SectionMain__greeting {
+  font-family: var(--font-montserrat);
+  font-size: var(--titleFontSize);
+}
+
+.SectionMain__name {
+  color: var(--primaryColor3);
+}
+
+.SectionMain__description {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.SectionMain__photo {
+  /* border-radius: 50%; */
+  /* border-radius: 30% 70% 67% 33% / 30% 28% 72% 70%; */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  width: 70%;
+  height: auto;
+  animation: mymove 10s ease-in-out infinite;
+  overflow: hidden;
+  box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.SectionMain__photo:hover {
+  /* animation-play-state: paused; */
+}
+
+.SectionMain__role {
+  font-family: var(--font-lora);
+}
+
+.SectionMain__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+@keyframes mymove {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  40% {
+    border-radius: 38% 62% 31% 69% / 71% 68% 32% 29%;
+    box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .SectionMain__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 70px 0;
+    grid-template-areas: 'SectionMain__left SectionMain__right' 'SectionMain__bottom SectionMain__bottom';
+  }
+
+  .SectionMain__photo {
+    width: 80%;
+  }
+
+  .SectionMain__mainText {
+    align-items: start;
+    justify-content: start;
+    gap: 16px;
+  }
+}
